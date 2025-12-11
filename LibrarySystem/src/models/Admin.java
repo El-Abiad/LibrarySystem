@@ -83,6 +83,7 @@ public class Admin extends User {
         Long newId = (long) (bookMap.size() + 1);
         Book book = new Book(newId, title, author, genre, year, amount);
         bookMap.put(newId, book);
+        librarySystem.incrementBooks();
         return true;
     }
 
