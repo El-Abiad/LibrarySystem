@@ -17,7 +17,6 @@ public class Librarian extends User {
         if (bookMap.containsKey(bookId)) {
             Book book = bookMap.get(bookId);
             if (book.isAvailable()) {
-                book.decrementAmount();
                 return new Transaction(IDGenerator.GenerateTransactionId(), patronId, this.getId(), bookId, "Checkout");
             }
         }
@@ -26,13 +25,16 @@ public class Librarian extends User {
 
     public boolean returnBook(Long patronId, Long bookId, HashMap<Long, Book> bookMap) {
         if (bookMap.containsKey(bookId)) {
-            bookMap.get(bookId).incrementAmount();
+            bookMap.get(bookId).updateStatus(true);
             return true;
         }
         return false;
     }
 
-    public Reservation createReservation(Long patronId, Long bookId, Long librarianId) {
+    public Reservation createReservation(Long patronId, Long bookId, Long librarianId, HashMap<Long, Book> bookMap) {
+        if (bookMap.containsKey(bookId)) {
+            bookMap.get(bookId).updateStatus(false);
+        }
         return new Reservation(IDGenerator.GenerateReservationId(), patronId, bookId);
     }
 

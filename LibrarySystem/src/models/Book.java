@@ -7,23 +7,15 @@ public class Book {
     private String author;
     private String genre;
     private int publicationYear;
-    private String status;
     private Boolean available;
-    private int amount;
 
-    public Book(Long id, String title, String author, String genre, int publicationYear, int amount) {
+    public Book(Long id, String title, String author, String genre, int publicationYear) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.genre = genre;
         this.publicationYear = publicationYear;
-        this.amount = amount;
-        this.available = amount > 0;
-        this.status = "Available";
-    }
-
-    public boolean isAvailable() {
-        return available;
+        this.available = true;
     }
 
     public void updateInfo(String title, String author, int year, String genre) {
@@ -33,59 +25,37 @@ public class Book {
         this.genre = genre;
     }
 
-    public void updateStatus(String status) {
-        this.status = status;
-    }
-
-    public void decrementAmount() {
-        if (amount > 0) {
-            amount--;
-            if (amount == 0) {
-                available = false;
-                status = "Unavailable";
-            }
-        }
-    }
-
-    public void incrementAmount() {
-        amount++;
-        if (amount > 0) {
-            available = true;
-            status = "Available";
-        }
+    public void updateStatus(Boolean available) {
+        this.available = available;
     }
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public String getAuthor() {
-        return author;
+        return this.author;
     }
 
     public String getGenre() {
-        return genre;
+        return this.genre;
     }
 
     public int getPublicationYear() {
-        return publicationYear;
+        return this.publicationYear;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public int getAmount() {
-        return amount;
+    public Boolean isAvailable() {
+        return this.available;
     }
 
     @Override
     public String toString() {
-        return this.id + " " + this.title + " " + this.author + " " + this.genre + " " + this.publicationYear + " " + this.amount;
+        return this.id + " " + this.title + " " + this.author + " " + this.genre + " " + this.publicationYear;
     }
 
 }

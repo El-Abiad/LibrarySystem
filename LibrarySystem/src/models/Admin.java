@@ -77,9 +77,9 @@ public class Admin extends User {
         return false;
     }
 
-    public Boolean addBook(String title, String author, int year, String genre, int amount, HashMap<Long, Book> bookMap) {
+    public Boolean addBook(String title, String author, int year, String genre, HashMap<Long, Book> bookMap) {
         Long newId = (long) (bookMap.size() + 1);
-        Book book = new Book(newId, title, author, genre, year, amount);
+        Book book = new Book(newId, title, author, genre, year);
         bookMap.put(newId, book);
         IDGenerator.GenerateBookId();
         return true;
@@ -96,12 +96,13 @@ public class Admin extends User {
     public boolean removeBook(Long bookId, HashMap<Long, Book> bookMap) {
         if (bookMap.containsKey(bookId)) {
             bookMap.remove(bookId);
+            bookMap.get(bookId).updateStatus(false);
             return true;
         }
         return false;
     }
 
-    public Boolean updateBookStatus(Long bookId, String status, HashMap<Long, Book> bookMap) {
+    public Boolean updateBookStatus(Long bookId, Boolean status, HashMap<Long, Book> bookMap) {
         if (bookMap.containsKey(bookId)) {
             bookMap.get(bookId).updateStatus(status);
             return true;
