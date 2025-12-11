@@ -69,7 +69,7 @@ public class FileManager {
                 String line = r.nextLine().trim();
                 String[] parts = line.split(separator);
                 Book book = new Book(Long.parseLong(parts[0]), parts[1], parts[2], parts[3],
-                        Integer.parseInt(parts[4]), Integer.parseInt(parts[5]));
+                        Integer.parseInt(parts[4]));
                 b.add(book);
             }
             r.close();
@@ -100,7 +100,7 @@ public class FileManager {
                     continue;
                 }
                 p.println(b.getId() + "|" + b.getTitle() + "|" + b.getAuthor() + "|"
-                        + b.getGenre() + "|" + b.getPublicationYear() + "|" + b.getAmount());
+                        + b.getGenre() + "|" + b.getPublicationYear());
             }
             p.close();
         } catch (IOException e) {
