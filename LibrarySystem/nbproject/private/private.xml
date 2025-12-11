@@ -4,16 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/utils/FileManager.java</file>
+            <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/files/books.txt</file>
+            <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/utils/IDGenerator.java</file>
             <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/models/User.java</file>
             <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/files/users.txt</file>
-            <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/models/Book.java</file>
-            <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/models/Transaction.java</file>
-            <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/models/Librarian.java</file>
-            <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/models/Patron.java</file>
-            <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/models/Reservation.java</file>
-            <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/files/Reservation.txt</file>
             <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/files/transactions.txt</file>
-            <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/files/books.txt</file>
+            <file>file:/D:/reprository/Pl-Project/LibrarySystem/LibrarySystem/src/files/Reservation.txt</file>
         </group>
     </open-files>
 </project-private>
