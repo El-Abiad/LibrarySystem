@@ -1,7 +1,5 @@
 package models;
 
-import java.util.Map;
-
 public class User {
 
     private Long Id;
@@ -25,7 +23,7 @@ public class User {
     }
 
     public void logout() {
-
+        //
     }
 
     public void setUsername(String username) {
@@ -64,16 +62,13 @@ public class User {
         return this.role;
     }
 
-    public Book searchBook(Long bookId, Map<Long, Book> bookMap) {
-        if (bookMap != null && bookMap.containsKey(bookId)) {
-            return bookMap.get(bookId);
-        }
-        return null;
+    public Book searchBook(Long bookId, LibrarySystem librarySystem) {
+        return librarySystem.getBookById(bookId);
     }
-    @Override
-public String toString() {
-    return this.Id + " " + this.username + " " + this.password + " " + this.phone + " " +this.email 
-            + " " + this.role;
-}
 
+    @Override
+    public String toString() {
+        return this.Id + " " + this.username + " " + this.password + " " + this.phone + " "
+                + this.email + " " + this.role;
+    }
 }

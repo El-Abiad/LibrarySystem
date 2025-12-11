@@ -1,11 +1,12 @@
 package models;
 
-import main.LibrarySystem;
 import java.util.*;
 import utils.IDGenerator;
 
 public class Admin extends User {
+
     private final LibrarySystem librarySystem;
+
     public Admin(String username, String password, String phone, String email, IDGenerator generate, LibrarySystem librarySystem) {
         super(IDGenerator.GenerateUserId(), username, password, phone, email, "Admin");
         this.librarySystem = librarySystem;
@@ -14,18 +15,15 @@ public class Admin extends User {
     public User createUser(String username, String email, String phone, String password, String role) {
         Long userId = IDGenerator.GenerateUserId();
         User newUser = new User(userId, username, password, phone, email, role);
-        librarySystem.getUserMap().put(userId, newUser);
+        librarySystem.getUsers().add(newUser);
         return newUser;
     }
 
     public boolean deleteUser(Long userId) {
-        if (librarySystem.getUserMap().containsKey(userId)) {
-            librarySystem.getUserMap().remove(userId);
-            return true;
-        }
-        return false;
+        ArrayList<User> users = librarySystem.getUsers();
+        return users.removeIf(u -> u.getId().equals(userId));
     }
-    
+
     public Boolean updateOwnUsername(Long userId, String newName) {
         if (this.getId().equals(userId)) {
             this.setUsername(newName);
@@ -49,62 +47,59 @@ public class Admin extends User {
         }
         return false;
     }
-    
-    public Boolean updateUsername(Long userId, String newName, HashMap<Long, User> userMap) {
-        if (userMap.containsKey(userId)) {
-            User u = userMap.get(userId);
-            u.setUsername(newName);
+
+    public Boolean updateUsername(Long userId, String newName) {
+        User user = librarySystem.getUserById(userId);
+        if (user != null) {
+            user.setUsername(newName);
             return true;
         }
         return false;
     }
 
-     public Boolean updateUserPhone(Long userId, String newPhone, HashMap<Long, User> userMap) {
-        if (userMap.containsKey(userId)) {
-            User u = userMap.get(userId);
-            u.setPhone(newPhone);
+    public Boolean updateUserPhone(Long userId, String newPhone) {
+        User user = librarySystem.getUserById(userId);
+        if (user != null) {
+            user.setPhone(newPhone);
             return true;
         }
         return false;
     }
 
-    public Boolean updateUserEmail(Long userId, String newEmail, HashMap<Long, User> userMap) {
-        if (userMap.containsKey(userId)) {
-            User u = userMap.get(userId);
-            u.setEmail(newEmail);
+    public Boolean updateUserEmail(Long userId, String newEmail) {
+        User user = librarySystem.getUserById(userId);
+        if (user != null) {
+            user.setEmail(newEmail);
             return true;
         }
         return false;
     }
 
-    public Boolean addBook(String title, String author, int year, String genre, HashMap<Long, Book> bookMap) {
-        Long newId = (long) (bookMap.size() + 1);
+    public Boolean addBook(String title, String author, int year, String genre) {
+        Long newId = IDGenerator.GenerateBookId();
         Book book = new Book(newId, title, author, genre, year);
-        bookMap.put(newId, book);
-        IDGenerator.GenerateBookId();
+        librarySystem.getBooks().add(book);
         return true;
     }
 
-    public Boolean updateBook(Long bookId, String title, String author, int year, String genre, HashMap<Long, Book> bookMap) {
-        if (bookMap.containsKey(bookId)) {
-            bookMap.get(bookId).updateInfo(title, author, year, genre);
+    public Boolean updateBook(Long bookId, String title, String author, int year, String genre) {
+        Book book = librarySystem.getBookById(bookId);
+        if (book != null) {
+            book.updateInfo(title, author, year, genre);
             return true;
         }
         return false;
     }
 
-    public boolean removeBook(Long bookId, HashMap<Long, Book> bookMap) {
-        if (bookMap.containsKey(bookId)) {
-            bookMap.remove(bookId);
-            bookMap.get(bookId).updateStatus(false);
-            return true;
-        }
-        return false;
+    public boolean removeBook(Long bookId) {
+        ArrayList<Book> books = librarySystem.getBooks();
+        return books.removeIf(b -> b.getId().equals(bookId));
     }
 
-    public Boolean updateBookStatus(Long bookId, Boolean status, HashMap<Long, Book> bookMap) {
-        if (bookMap.containsKey(bookId)) {
-            bookMap.get(bookId).updateStatus(status);
+    public Boolean updateBookStatus(Long bookId, Boolean status) {
+        Book book = librarySystem.getBookById(bookId);
+        if (book != null) {
+            book.updateStatus(status);
             return true;
         }
         return false;
