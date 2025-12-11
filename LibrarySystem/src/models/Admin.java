@@ -2,27 +2,25 @@ package models;
 
 import main.LibrarySystem;
 import java.util.*;
+import utils.IDGenerator;
 
 public class Admin extends User {
     private final LibrarySystem librarySystem;
-
-    public Admin(String username, String password, String phone, String email, LibrarySystem librarySystem) {
-        super(librarySystem.getUserCount()+1, username, password, phone, email, "Admin");
+    public Admin(String username, String password, String phone, String email, IDGenerator generate, LibrarySystem librarySystem) {
+        super(IDGenerator.GenerateUserId(), username, password, phone, email, "Admin");
         this.librarySystem = librarySystem;
     }
 
     public User createUser(String username, String email, String phone, String password, String role) {
-        Long userId = librarySystem.getUserCount()+1;
+        Long userId = IDGenerator.GenerateUserId();
         User newUser = new User(userId, username, password, phone, email, role);
         librarySystem.getUserMap().put(userId, newUser);
-        librarySystem.incrementUsers();
         return newUser;
     }
 
     public boolean deleteUser(Long userId) {
         if (librarySystem.getUserMap().containsKey(userId)) {
             librarySystem.getUserMap().remove(userId);
-            librarySystem.decrementUsers();
             return true;
         }
         return false;
@@ -83,7 +81,7 @@ public class Admin extends User {
         Long newId = (long) (bookMap.size() + 1);
         Book book = new Book(newId, title, author, genre, year, amount);
         bookMap.put(newId, book);
-        librarySystem.incrementBooks();
+        IDGenerator.GenerateBookId();
         return true;
     }
 
@@ -98,7 +96,6 @@ public class Admin extends User {
     public boolean removeBook(Long bookId, HashMap<Long, Book> bookMap) {
         if (bookMap.containsKey(bookId)) {
             bookMap.remove(bookId);
-            librarySystem.decrementBooks();
             return true;
         }
         return false;

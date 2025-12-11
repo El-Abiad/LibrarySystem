@@ -9,15 +9,11 @@ public class LibrarySystem {
     private final HashMap<Long, User> userMap;
     private final HashMap<Long, Book> bookMap;
     private final HashMap<Long, Reservation> resMap;
-    private Long userCount;
-    private Long bookCount;
 
     public LibrarySystem() {
         this.userMap = new HashMap<>();
         this.bookMap = new HashMap<>();
         this.resMap = new HashMap<>();
-        this.userCount = 0L;
-        this.bookCount = 0L;
     }
 
     public String getUsername(Long userId) {
@@ -39,30 +35,6 @@ public class LibrarySystem {
             return userMap.get(userId).getEmail();
         }
         return null;
-    }
-
-    public void decrementUsers() {
-        if (this.userCount > 0) {
-            this.userCount--;
-        }
-    }
-
-    public void incrementUsers() {
-        this.userCount++;
-    }
-
-    public void decrementBooks() {
-        if (this.bookCount > 0) {
-            this.bookCount--;
-        }
-    }
-
-    public void incrementBooks() {
-        this.bookCount++;
-    }
-
-    public Long getUserCount(){
-        return this.userCount;
     }
     
     public HashMap<Long, Book> getBookMap() {

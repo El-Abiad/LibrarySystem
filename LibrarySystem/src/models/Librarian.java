@@ -1,13 +1,15 @@
 package models;
 
-import java.util.HashMap;
+import java.util.*;
+import java.time.*;
 import main.LibrarySystem;
+import utils.IDGenerator;
 
 public class Librarian extends User {
     private final LibrarySystem librarySystem;
     
     public Librarian(String username, String password, String phone, String email, LibrarySystem librarySystem) {
-        super(librarySystem.getUserCount()+1, username, password, phone, email, "Librarian");
+        super(IDGenerator.GenerateUserId(), username, password, phone, email, "Librarian");
         this.librarySystem = librarySystem;
     }
 
@@ -16,7 +18,7 @@ public class Librarian extends User {
             Book book = bookMap.get(bookId);
             if (book.isAvailable()) {
                 book.decrementAmount();
-                return new Transaction(System.currentTimeMillis(), patronId, this.getId(), bookId, "Checkout");
+                return new Transaction(IDGenerator.GenerateTransactionId(), patronId, this.getId(), bookId, "Checkout");
             }
         }
         return null;
@@ -30,8 +32,8 @@ public class Librarian extends User {
         return false;
     }
 
-    public Transaction createReservation(Long patronId, Long bookId, Long librarianId) {
-        return new Transaction(System.currentTimeMillis(), patronId, librarianId, bookId, "Reservation");
+    public Reservation createReservation(Long patronId, Long bookId, Long librarianId) {
+        return new Reservation(IDGenerator.GenerateReservationId(), patronId, bookId);
     }
 
     public void notifyPatron(Long reservationId, HashMap<Long, Reservation> resMap) {
