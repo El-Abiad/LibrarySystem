@@ -4,15 +4,15 @@ import java.util.*;
 import java.io.*;
 import models.*;
 
-public class FileManager {
+public abstract class FileManager {
 
-    private String usersfilepath = "src/files/users.txt";
-    private String booksfilepath = "src/files/books.txt";
-    private String transactionsfilepath = "src/files/transactions.txt";
-    private String Reservationfilepath = "src/files/Reservation.txt";
-    private String separator = "\\|";
+    private static String usersfilepath = "src/files/users.txt";
+    private static String booksfilepath = "src/files/books.txt";
+    private static String transactionsfilepath = "src/files/transactions.txt";
+    private static String Reservationfilepath = "src/files/Reservation.txt";
+    private static String separator = "\\|";
 
-    public ArrayList<User> ReadUsers() {
+    public static ArrayList<User> ReadUsers() {
         File f = new File(usersfilepath);
         ArrayList<User> u = new ArrayList<>();
         try {
@@ -31,7 +31,7 @@ public class FileManager {
         return u;
     }
 
-    private boolean FindUser(long id) {
+    private static boolean FindUser(long id) {
         ArrayList<User> users = ReadUsers();
         for (User user : users) {
             if (user.getId() == id) {
@@ -41,7 +41,7 @@ public class FileManager {
         return false;
     }
 
-    public void WriteUsers(ArrayList<User> users) {
+    public static void WriteUsers(ArrayList<User> users) {
         File f = new File(usersfilepath);
         try {
             PrintWriter p = new PrintWriter(new FileWriter(f, true));
@@ -60,7 +60,7 @@ public class FileManager {
         }
     }
 
-    public ArrayList<Book> ReadBooks() {
+    public static ArrayList<Book> ReadBooks() {
         File f = new File(booksfilepath);
         ArrayList<Book> b = new ArrayList<>();
         try {
@@ -79,7 +79,7 @@ public class FileManager {
         return b;
     }
 
-    private boolean FindBook(long id) {
+    private static boolean FindBook(long id) {
         ArrayList<Book> books = ReadBooks();
         for (Book b : books) {
             if (b.getId() == id) {
@@ -89,7 +89,7 @@ public class FileManager {
         return false;
     }
 
-    public void WriteBooks(ArrayList<Book> books) {
+    public static void WriteBooks(ArrayList<Book> books) {
         File f = new File(booksfilepath);
         try {
             PrintWriter p = new PrintWriter(new FileWriter(f, true));
@@ -108,7 +108,7 @@ public class FileManager {
         }
     }
 
-    public ArrayList<Transaction> ReadTransactions() {
+    public static ArrayList<Transaction> ReadTransactions() {
         File f = new File(transactionsfilepath);
         ArrayList<Transaction> T = new ArrayList<>();
         try {
@@ -127,7 +127,7 @@ public class FileManager {
         return T;
     }
 
-    private boolean FindTransaction(long id) {
+    private static boolean FindTransaction(long id) {
         ArrayList<Transaction> ts = ReadTransactions();
         for (Transaction t : ts) {
             if (t.getId() == id) {
@@ -137,7 +137,7 @@ public class FileManager {
         return false;
     }
 
-    public void WriteTransaction(ArrayList<Transaction> transactions) {
+    public static void WriteTransaction(ArrayList<Transaction> transactions) {
         File f = new File(transactionsfilepath);
         try {
             PrintWriter p = new PrintWriter(new FileWriter(f, true));
@@ -156,7 +156,7 @@ public class FileManager {
         }
     }
 
-    public ArrayList<Reservation> ReadReservations() {
+    public static ArrayList<Reservation> ReadReservations() {
         File f = new File(Reservationfilepath);
         ArrayList<Reservation> R = new ArrayList<>();
         try {
@@ -175,7 +175,7 @@ public class FileManager {
         return R;
     }
 
-    private boolean FindReservation(Long id) {
+    private static boolean FindReservation(Long id) {
         ArrayList<Reservation> reservations = ReadReservations();
         for (Reservation r : reservations) {
             if (r.getId() == id) {
@@ -185,7 +185,7 @@ public class FileManager {
         return false;
     }
 
-    public void WriteReservation(ArrayList<Reservation> reservations) {
+    public static void WriteReservation(ArrayList<Reservation> reservations) {
         File f = new File(Reservationfilepath);
         try {
             PrintWriter p = new PrintWriter(new FileWriter(f, true));

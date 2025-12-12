@@ -7,15 +7,14 @@ public class Main {
     public static void main(String[] args) {
 
         LibrarySystem ls = new LibrarySystem();
-        FileManager fm = new FileManager();
 
-        ls.getUsers().addAll(fm.ReadUsers());
+        ls.getUsers().addAll(FileManager.ReadUsers());
 
-        ls.getBooks().addAll(fm.ReadBooks());
+        ls.getBooks().addAll(FileManager.ReadBooks());
 
-        ls.getReservations().addAll(fm.ReadReservations());
+        ls.getReservations().addAll(FileManager.ReadReservations());
 
-        ls.getTransactions().addAll(fm.ReadTransactions());
+        ls.getTransactions().addAll(FileManager.ReadTransactions());
 
         System.out.println("Library system loaded successfully!");
     }
