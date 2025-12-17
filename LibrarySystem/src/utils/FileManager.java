@@ -31,7 +31,7 @@ public abstract class FileManager {
         return u;
     }
 
-    private static int FindUser(long id) {
+    public static int FindUser(long id) {
         ArrayList<User> users = ReadUsers();
         int index=0;
         for (User user : users) {
@@ -160,7 +160,7 @@ public abstract class FileManager {
         return b;
     }
 
-    private static int FindBook(long id) {
+    public static int FindBook(long id) {
         ArrayList<Book> books = ReadBooks();
         int index=0;
         for (Book b : books) {

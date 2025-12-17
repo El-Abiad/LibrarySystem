@@ -58,7 +58,14 @@ public class ReservationScreen extends JFrame {
             try {
                 Long patronId = Long.parseLong(patronField.getText());
                 Long bookId = Long.parseLong(bookField.getText());
-
+                if(FileManager.FindUser(patronId)==-1){
+                    JOptionPane.showMessageDialog(this,"Patron is not found");
+                    return;
+                }
+                if(FileManager.FindBook(bookId)==-1){
+                    JOptionPane.showMessageDialog(this,"Book is not found");
+                    return;
+                }
                 ArrayList<Reservation> reservations = FileManager.ReadReservations();
                 Reservation r = new Reservation(System.currentTimeMillis(), patronId, bookId);
                 reservations.add(r);
