@@ -11,10 +11,18 @@ public class LoginScreen {
         frame = new JFrame("Login Screen");
         frame.setSize(1920, 1750);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        
+
 
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBackground(Color.BLACK);
+        
+        JLabel LogIn = new JLabel("LogIn");
+        LogIn.setForeground(Color.WHITE);
+        LogIn.setFont(new Font("Arial", Font.BOLD, 40));
+        LogIn.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel IDlabel = new JLabel("ID");
         IDlabel.setForeground(Color.WHITE);
@@ -77,7 +85,9 @@ public class LoginScreen {
 
             frame.dispose();
         });
-
+        
+        panel.add(Box.createVerticalStrut(40));
+        panel.add(LogIn);
         panel.add(Box.createVerticalStrut(40));
         panel.add(IDlabel);
         panel.add(Box.createVerticalStrut(10));
