@@ -77,6 +77,7 @@ public class LoginScreen {
             if (role.equalsIgnoreCase("Admin")) {
             }
             else if (role.equalsIgnoreCase("Patron")) {
+                new screens.patron.WelcomePatron(u).setVisible(true);
             }
             else if (role.equalsIgnoreCase("Librarian")) {
                 new screens.librarian.Welcome(u).setVisible(true);
