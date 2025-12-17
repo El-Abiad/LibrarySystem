@@ -11,10 +11,7 @@ public class LoginScreen {
         frame = new JFrame("Login Screen");
         frame.setSize(1920, 1750);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        
-
-
+  
         JPanel panel = new JPanel();
         panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
         panel.setBackground(Color.BLACK);
@@ -64,9 +61,11 @@ public class LoginScreen {
             }
 
             long userId = Long.parseLong(id);
-            User u = LibrarySystem.findUserById(userId);
+            long userpass = Long.parseLong(password);
 
-            if (u == null) {
+            User u = LibrarySystem.findUserById(userId);
+            
+            if (u == null || Long.parseLong(u.getPassword()) != userpass) {
                 JOptionPane.showMessageDialog(frame,
                         "Invalid ID or password",
                         "Login Failed",
