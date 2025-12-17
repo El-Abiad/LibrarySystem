@@ -16,6 +16,6 @@ public class Main {
 
         ls.getTransactions().addAll(FileManager.ReadTransactions());
 
-        System.out.println("Library system loaded successfully!");
+        
     }
 }

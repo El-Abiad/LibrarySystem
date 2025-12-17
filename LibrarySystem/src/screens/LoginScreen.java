@@ -1,0 +1,92 @@
+package screens;
+
+import javax.swing.*;
+import java.awt.*;
+import models.*;
+
+public class LoginScreen {
+
+    public static void main(String[] args) {
+
+        JFrame frame = new JFrame("Login Screen");
+        frame.setSize(1920, 1750);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBackground(Color.BLACK);
+
+        JLabel IDlabel = new JLabel("ID");
+        IDlabel.setForeground(Color.WHITE);
+        IDlabel.setFont(new Font("Arial", Font.BOLD, 24));
+        IDlabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JTextField IDField = new JTextField(15);
+        IDField.setMaximumSize(new Dimension(300, 40));
+        IDField.setFont(new Font("Arial", Font.BOLD, 20));
+        IDField.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JLabel passLabel = new JLabel("Password");
+        passLabel.setForeground(Color.WHITE);
+        passLabel.setFont(new Font("Arial", Font.BOLD, 24));
+        passLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JPasswordField passField = new JPasswordField(15);
+        passField.setMaximumSize(new Dimension(300, 40));
+        passField.setFont(new Font("Arial", Font.BOLD, 20));
+        passField.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        JButton loginButton = new JButton("Login");
+        loginButton.setFont(new Font("Arial", Font.BOLD, 20));
+        loginButton.setBackground(Color.WHITE);
+        loginButton.setForeground(Color.BLACK);
+        loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
+
+        loginButton.addActionListener(e -> {
+            String id = IDField.getText();
+            String password = new String(passField.getPassword());
+
+            if (!id.matches("\\d+")) {
+                JOptionPane.showMessageDialog(frame,
+                        "ID must be numbers only!",
+                        "Invalid Input",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            long userId = Long.parseLong(id);
+
+            User u = LibrarySystem.findUserById(userId);
+            if (u == null) {
+                JOptionPane.showMessageDialog(frame,
+                        "Invalid ID or password",
+                        "Login Failed",
+                        JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+
+            String role = u.getRole();
+            if (role.equalsIgnoreCase("Admin")) {
+                // call admin page
+            } else if (role.equalsIgnoreCase("Patron")) {
+                // call patron page
+            } else if (role.equalsIgnoreCase("Librarian")) {
+                // call librarian page
+            }
+        });
+
+        panel.add(Box.createVerticalStrut(40));
+        panel.add(IDlabel);
+        panel.add(Box.createVerticalStrut(10));
+        panel.add(IDField);
+        panel.add(Box.createVerticalStrut(25));
+        panel.add(passLabel);
+        panel.add(Box.createVerticalStrut(10));
+        panel.add(passField);
+        panel.add(Box.createVerticalStrut(35));
+        panel.add(loginButton);
+
+        frame.add(panel);
+        frame.setVisible(true);
+    }
+}

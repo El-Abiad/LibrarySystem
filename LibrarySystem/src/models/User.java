@@ -1,4 +1,5 @@
 package models;
+import models.LibrarySystem;
 
 public class User {
 
@@ -16,14 +17,6 @@ public class User {
         this.phone = phone;
         this.email = email;
         this.role = role;
-    }
-
-    public Boolean login(Long id, String password) {
-        return this.Id.equals(id) && this.password.equals(password);
-    }
-
-    public void logout() {
-        //
     }
 
     public void setUsername(String username) {

@@ -2,19 +2,16 @@ package models;
 
 import java.util.ArrayList;
 public class LibrarySystem {
-    private final ArrayList<User> users;
-    private final ArrayList<Book> books;
-    private final ArrayList<Reservation> reservations;
-    private final ArrayList<Transaction> transactions;
+    private final static ArrayList<User> users = new ArrayList<>();
+    private final static ArrayList<Book> books= new ArrayList<>();
+    private final static ArrayList<Reservation> reservations = new ArrayList<>();
+    private final static ArrayList<Transaction> transactions = new ArrayList<>();
 
     public LibrarySystem() {
-        this.users = new ArrayList<>();
-        this.books = new ArrayList<>();
-        this.reservations = new ArrayList<>();
-        this.transactions = new ArrayList<>();
+        
     }
 
-    private User findUserById(Long userId) {
+    public static User findUserById(Long userId) {
         for (User user : users) {
             if (user.getId().equals(userId)) {
                 return user;
