@@ -3,32 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/models/Book.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/admin/ManageBooksFrame.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/admin/ManageUsersFrame.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/utils/FileManager.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/models/User.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/models/Admin.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/admin/AdminDashboard.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/LoginScreen.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/admin/EditProfileFrame.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/main/Main.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/files/users.txt</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/models/Librarian.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/librarian/CheckoutScreen.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/librarian/Welcome.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/patron/WelcomePatron.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/models/LibrarySystem.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/models/Patron.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/models/Reservation.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/models/Transaction.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/librarian/EditScreen.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/librarian/ReservationScreen.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/librarian/ReturnScreen.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/patron/PatronContactScreen.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/patron/PatronDashboard.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/patron/SearchBooksScreen.java</file>
-            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/utils/IDGenerator.java</file>
+            <file>file:/C:/Users/El-Abiad/OneDrive%20-%20Faculty%20of%20Computers%20and%20Information/Desktop/LibrarySystem/LibrarySystem/src/screens/LoginScreen.java</file>
+            <file>file:/C:/Users/El-Abiad/OneDrive%20-%20Faculty%20of%20Computers%20and%20Information/Desktop/LibrarySystem/LibrarySystem/src/main/Main.java</file>
         </group>
     </open-files>
 </project-private>

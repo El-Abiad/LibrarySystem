@@ -61,11 +61,10 @@ public class LoginScreen {
             }
 
             long userId = Long.parseLong(id);
-            long userpass = Long.parseLong(password);
 
             User u = LibrarySystem.findUserById(userId);
             
-            if (u == null || Long.parseLong(u.getPassword()) != userpass) {
+            if (u == null || !u.getPassword().equals(password)) {
                 JOptionPane.showMessageDialog(frame,
                         "Invalid ID or password",
                         "Login Failed",
