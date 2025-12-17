@@ -56,23 +56,39 @@ public class SearchBooksScreen extends JFrame {
         panel.add(scroll);
         panel.add(Box.createVerticalGlue());
 
+         StringBuilder initialResults = new StringBuilder();
         add(panel);
         setVisible(true);
-
-        ArrayList<Book> books = LibrarySystem.getBooks();
+        LibrarySystem ls = new LibrarySystem();
+        ArrayList<Book> books = ls.getBooks();
+            for (Book b : books) {
+                initialResults.append("ID: ").append(b.getId())
+                        .append(", Title: ").append(b.getTitle())
+                        .append(", Author: ").append(b.getAuthor())
+                        .append(", Year: ").append(b.getPublicationYear())
+                        .append("\n");
+            if (initialResults.length() == 0) {
+                initialResults.append("No books found.");
+            }
+            else{
+                  resultsArea.setText(initialResults.toString());
+            }
+        }
         searchBtn.addActionListener(e -> {
             String query = searchField.getText().toLowerCase();
             StringBuilder results = new StringBuilder();
             for (Book b : books) {
                 if (b.getTitle().toLowerCase().contains(query) || b.getAuthor().toLowerCase().contains(query)) {
                     results.append("ID: ").append(b.getId())
-                           .append(", Title: ").append(b.getTitle())
-                           .append(", Author: ").append(b.getAuthor())
-                           .append(", Year: ").append(b.getPublicationYear())
-                           .append("\n");
+                            .append(", Title: ").append(b.getTitle())
+                            .append(", Author: ").append(b.getAuthor())
+                            .append(", Year: ").append(b.getPublicationYear())
+                            .append("\n");
                 }
             }
-            if (results.length() == 0) results.append("No books found.");
+            if (results.length() == 0) {
+                results.append("No books found.");
+            }
             resultsArea.setText(results.toString());
         });
     }

@@ -64,7 +64,7 @@ public class ReturnScreen extends JFrame {
 
                 ArrayList<Transaction> transactions = FileManager.ReadTransactions();
 
-                // إضافة معاملة Return
+
                 long librarianId = (librarian != null) ? librarian.getId() : 0L;
                 Transaction t = new Transaction(System.currentTimeMillis(), patronId, librarianId, bookId, "Return");
                 transactions.add(t);

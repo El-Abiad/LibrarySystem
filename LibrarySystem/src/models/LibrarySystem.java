@@ -53,7 +53,7 @@ public class LibrarySystem {
         return (user != null) ? user.getEmail() : null;
     }
 
-    public static ArrayList<Book> getBooks() {
+    public  ArrayList<Book> getBooks() {
         return books;
     }
 
