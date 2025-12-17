@@ -5,10 +5,10 @@ import java.awt.*;
 import models.*;
 
 public class LoginScreen {
+    private JFrame frame;
+    public LoginScreen() {
 
-    public static void main(String[] args) {
-
-        JFrame frame = new JFrame("Login Screen");
+        frame = new JFrame("Login Screen");
         frame.setSize(1920, 1750);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -43,6 +43,7 @@ public class LoginScreen {
         loginButton.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         loginButton.addActionListener(e -> {
+
             String id = IDField.getText();
             String password = new String(passField.getPassword());
 
@@ -55,8 +56,8 @@ public class LoginScreen {
             }
 
             long userId = Long.parseLong(id);
-
             User u = LibrarySystem.findUserById(userId);
+
             if (u == null) {
                 JOptionPane.showMessageDialog(frame,
                         "Invalid ID or password",
@@ -67,12 +68,14 @@ public class LoginScreen {
 
             String role = u.getRole();
             if (role.equalsIgnoreCase("Admin")) {
-                // call admin page
-            } else if (role.equalsIgnoreCase("Patron")) {
-                // call patron page
-            } else if (role.equalsIgnoreCase("Librarian")) {
-                // call librarian page
             }
+            else if (role.equalsIgnoreCase("Patron")) {
+            }
+            else if (role.equalsIgnoreCase("Librarian")) {
+                new screens.librarian.Welcome(u).setVisible(true);
+            }
+
+            frame.dispose();
         });
 
         panel.add(Box.createVerticalStrut(40));
@@ -87,6 +90,10 @@ public class LoginScreen {
         panel.add(loginButton);
 
         frame.add(panel);
+        frame.setLocationRelativeTo(null);
+    }
+
+    public void show() {
         frame.setVisible(true);
     }
 }

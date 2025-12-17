@@ -2,6 +2,7 @@ package main;
 
 import utils.FileManager;
 import models.LibrarySystem;
+import screens.LoginScreen;
 
 public class Main {
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class Main {
 
         ls.getTransactions().addAll(FileManager.ReadTransactions());
 
-        
+        LoginScreen Launch = new LoginScreen();
+        Launch.show();
     }
 }
