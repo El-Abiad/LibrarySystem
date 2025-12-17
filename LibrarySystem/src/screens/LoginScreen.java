@@ -75,6 +75,7 @@ public class LoginScreen {
 
             String role = u.getRole();
             if (role.equalsIgnoreCase("Admin")) {
+                new screens.admin.AdminDashboard().setVisible(true);
             }
             else if (role.equalsIgnoreCase("Patron")) {
                 new screens.patron.WelcomePatron(u).setVisible(true);

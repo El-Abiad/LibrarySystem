@@ -11,7 +11,7 @@ public class Admin extends User {
         super(IDGenerator.GenerateUserId(), username, password, phone, email, "Admin");
         this.librarySystem = librarySystem;
     }
-
+    
     public User createUser(String username, String email, String phone, String password, String role) {
         Long userId = IDGenerator.GenerateUserId();
         User newUser = new User(userId, username, password, phone, email, role);
@@ -96,12 +96,5 @@ public class Admin extends User {
         return books.removeIf(b -> b.getId().equals(bookId));
     }
 
-    public Boolean updateBookStatus(Long bookId, Boolean status) {
-        Book book = librarySystem.getBookById(bookId);
-        if (book != null) {
-            book.updateStatus(status);
-            return true;
-        }
-        return false;
-    }
+    
 }

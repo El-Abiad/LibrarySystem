@@ -15,8 +15,8 @@ public class Librarian extends User {
     public Transaction checkoutBook(Long patronId, Long bookId) {
         Book book = librarySystem.getBookById(bookId);
 
-        if (book != null && book.isAvailable()) {
-            book.updateStatus(false);
+        if (book != null && "Available".equals(book.getStatus())) {
+            book.updateStatus("Checked Out");
 
             return new Transaction(
                 IDGenerator.GenerateTransactionId(),
@@ -34,7 +34,7 @@ public class Librarian extends User {
         Book book = librarySystem.getBookById(bookId);
 
         if (book != null) {
-            book.updateStatus(true);
+            book.updateStatus("Available");
             return true;
         }
 
@@ -45,7 +45,7 @@ public class Librarian extends User {
         Book book = librarySystem.getBookById(bookId);
 
         if (book != null) {
-            book.updateStatus(false);
+            book.updateStatus("Reserved");
         }
 
         Reservation res = new Reservation(

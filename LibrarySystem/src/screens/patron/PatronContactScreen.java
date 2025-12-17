@@ -31,15 +31,12 @@ public class PatronContactScreen extends JFrame {
         JLabel phoneLabel = new JLabel("Phone:");
         JLabel emailLabel = new JLabel("Email:");
 
-        // Text fields
         phoneField = new JTextField(user.getPhone(), 20);
         emailField = new JTextField(user.getEmail(), 20);
 
-        // Save button
         saveButton = new JButton("Save Changes");
         saveButton.addActionListener(e -> saveChanges());
 
-        // Dark mode colors
         getContentPane().setBackground(Color.DARK_GRAY);
         phoneLabel.setForeground(Color.WHITE);
         emailLabel.setForeground(Color.WHITE);
@@ -50,7 +47,6 @@ public class PatronContactScreen extends JFrame {
         saveButton.setBackground(Color.BLACK);
         saveButton.setForeground(Color.WHITE);
 
-        // Add components
         gbc.gridx = 0; gbc.gridy = 0; add(phoneLabel, gbc);
         gbc.gridx = 1; gbc.gridy = 0; add(phoneField, gbc);
         gbc.gridx = 0; gbc.gridy = 1; add(emailLabel, gbc);
@@ -67,11 +63,9 @@ public class PatronContactScreen extends JFrame {
         currentUser.setPhone(newPhone);
         currentUser.setEmail(newEmail);
 
-        // Call FileManager update function
         FileManager.updateuser(currentUser);
 
         JOptionPane.showMessageDialog(this, "Contact information updated!");
     }
 
-    // Standalone test
 }

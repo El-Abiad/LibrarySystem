@@ -19,7 +19,6 @@ public class PatronDashboard extends JFrame {
         setLayout(new BorderLayout());
         getContentPane().setBackground(Color.DARK_GRAY);
 
-        // Top panel - Welcome
         JPanel topPanel = new JPanel();
         topPanel.setBackground(Color.BLACK);
         topPanel.setPreferredSize(new Dimension(800, 80));
@@ -46,8 +45,6 @@ public class PatronDashboard extends JFrame {
 
         add(centerPanel, BorderLayout.CENTER);
 
-        // Button actions
-        //myBooksButton.addActionListener(e -> new MyBooksScreen(currentUser));
         reservationsButton.addActionListener(e -> JOptionPane.showMessageDialog(this, "Open Reservations Screen"));
         transactionsButton.addActionListener(e -> JOptionPane.showMessageDialog(this, "Open Transactions Screen"));
         profileButton.addActionListener(e -> new PatronContactScreen(currentUser));
@@ -64,7 +61,6 @@ public class PatronDashboard extends JFrame {
         button.setBorder(BorderFactory.createLineBorder(Color.WHITE, 2));
         button.setCursor(new Cursor(Cursor.HAND_CURSOR));
 
-        // Hover effect
         button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 button.setBackground(Color.LIGHT_GRAY);

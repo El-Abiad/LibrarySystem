@@ -1,5 +1,4 @@
-
-package GUI;
+package screens.admin;
 
 
 import javax.swing.*;

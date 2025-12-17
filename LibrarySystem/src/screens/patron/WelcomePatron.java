@@ -12,6 +12,7 @@ public class WelcomePatron extends JFrame {
     private JButton dashboardBtn;
     private JButton searchBtn;
     private JButton contactBtn;
+    private JButton LogOut;
 
     public WelcomePatron(User patron) {
         this.patron = patron;
@@ -30,7 +31,6 @@ public class WelcomePatron extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(20, 20, 20, 20);
 
-        // Welcome Label
         welcomeLabel = new JLabel("Welcome Patron");
         welcomeLabel.setFont(new Font("Segoe UI", Font.BOLD, 48));
         welcomeLabel.setForeground(Color.WHITE);
@@ -39,7 +39,6 @@ public class WelcomePatron extends JFrame {
         gbc.gridy = 0;
         mainPanel.add(welcomeLabel, gbc);
 
-        // Buttons
         Font btnFont = new Font("Segoe UI", Font.BOLD, 24);
         Dimension btnSize = new Dimension(300, 60);
 
@@ -66,7 +65,13 @@ public class WelcomePatron extends JFrame {
                 new PatronContactScreen(patron).setVisible(true));
         gbc.gridy = 3;
         mainPanel.add(contactBtn, gbc);
-
+        
+        LogOut = new JButton("LogOut");
+        LogOut.setFont(btnFont);
+        LogOut.setPreferredSize(btnSize);
+        LogOut.addActionListener(e -> {this.dispose(); (new screens.LoginScreen()).show();});
+        gbc.gridy = 4;
+        mainPanel.add(LogOut, gbc);
         add(mainPanel, BorderLayout.CENTER);
     }
 }

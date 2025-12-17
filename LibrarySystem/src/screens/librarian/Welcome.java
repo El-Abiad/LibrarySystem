@@ -14,6 +14,7 @@ public class Welcome extends JFrame {
     private JButton jButton2;
     private JButton jButton3;
     private JButton jButton4;
+    private JButton jButton5;
 
     public Welcome(User librarian) {
         this.librarian = librarian;
@@ -23,6 +24,7 @@ public class Welcome extends JFrame {
         jButton2 = new JButton();
         jButton3 = new JButton();
         jButton4 = new JButton();
+        jButton5 = new JButton();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("Welcome");
@@ -88,6 +90,14 @@ public class Welcome extends JFrame {
 
         gbc.gridy = 4;
         jPanel1.add(jButton4, gbc);
+        
+        jButton5.setText("LogOut");
+        jButton5.setFont(btnFont);
+        jButton5.setPreferredSize(btnSize);
+        jButton5.addActionListener(e -> {this.dispose(); (new screens.LoginScreen()).show();});
+
+        gbc.gridy = 5;
+        jPanel1.add(jButton5, gbc);
 
         add(jPanel1, BorderLayout.CENTER);
     }
