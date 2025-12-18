@@ -53,6 +53,26 @@ public class LibrarySystem {
         return (user != null) ? user.getEmail() : null;
     }
 
+    public User getUserById(Long id) {
+    for (User u : users) {
+        if (u.getId().equals(id)) return u;
+    }
+    return null;
+    }
+
+    public Book getBookById(Long id) {
+        for (Book b : books) {
+            if (b.getId().equals(id)) return b;
+        }
+        return null;
+    }
+    public Reservation getReservationById(Long id) {
+        for (Reservation r : reservations) {
+            if (r.getId().equals(id)) return r;
+        }
+        return null;
+    }
+
     public  ArrayList<Book> getBooks() {
         return books;
     }
