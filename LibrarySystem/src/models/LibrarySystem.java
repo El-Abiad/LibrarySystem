@@ -1,56 +1,18 @@
 package models;
 
 import java.util.ArrayList;
+
 public class LibrarySystem {
-    private final static ArrayList<User> users = new ArrayList<>();
-    private final static ArrayList<Book> books= new ArrayList<>();
-    private final static ArrayList<Reservation> reservations = new ArrayList<>();
-    private final static ArrayList<Transaction> transactions = new ArrayList<>();
+    private final ArrayList<User> users;
+    private final ArrayList<Book> books;
+    private final ArrayList<Reservation> reservations;
+    private final ArrayList<Transaction> transactions;
 
     public LibrarySystem() {
-        
-    }
-
-    public static User findUserById(Long userId) {
-        for (User user : users) {
-            if (user.getId().equals(userId)) {
-                return user;
-            }
-        }
-        return null;
-    }
-
-    private Book findBookById(Long bookId) {
-        for (Book book : books) {
-            if (book.getId().equals(bookId)) {
-                return book;
-            }
-        }
-        return null;
-    }
-
-    private Reservation findReservationById(Long resId) {
-        for (Reservation res : reservations) {
-            if (res.getId().equals(resId)) {
-                return res;
-            }
-        }
-        return null;
-    }
-
-    public String getUsername(Long userId) {
-        User user = findUserById(userId);
-        return (user != null) ? user.getUsername() : null;
-    }
-
-    public String getUserPhone(Long userId) {
-        User user = findUserById(userId);
-        return (user != null) ? user.getPhone() : null;
-    }
-
-    public String getUserEmail(Long userId) {
-        User user = findUserById(userId);
-        return (user != null) ? user.getEmail() : null;
+        this.users = new ArrayList<>();
+        this.books = new ArrayList<>();
+        this.reservations = new ArrayList<>();
+        this.transactions = new ArrayList<>();
     }
 
     public User getUserById(Long id) {
@@ -73,8 +35,23 @@ public class LibrarySystem {
         return null;
     }
 
-    public  ArrayList<Book> getBooks() {
-        return books;
+    public String getUsername(Long userId) {
+        User user = getUserById(userId);
+        return (user != null) ? user.getUsername() : null;
+    }
+
+    public String getUserPhone(Long userId) {
+        User user = getUserById(userId);
+        return (user != null) ? user.getPhone() : null;
+    }
+    
+    public String getUserEmail(Long userId) {
+        User user = getUserById(userId);
+        return (user != null) ? user.getEmail() : null;
+    }
+    
+    public ArrayList<Book> getBooks() {
+        return this.books;
     }
 
     public ArrayList<User> getUsers() {
