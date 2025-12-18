@@ -1,6 +1,6 @@
 package models;
 
-public class Book implements Serializable {
+public class Book {
     private Long id;
     private String title;
     private String author;
@@ -57,4 +57,5 @@ public class Book implements Serializable {
         return this.id + " " + this.title + " " + this.author + " " + this.genre + " " + this.publicationYear + " " + this.status;
     }
 }
+
 
