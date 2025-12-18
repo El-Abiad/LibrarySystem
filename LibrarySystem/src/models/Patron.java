@@ -13,7 +13,16 @@ public class Patron extends User {
     
     public Book searchBook(String keyword, ArrayList<Book> books) {
         for (Book b : books) {
-            if (b.getTitle().contains(keyword.toLowerCase()) || b.getAuthor().contains(keyword.toLowerCase())) {
+            if (b.getTitle().contains(keyword.toLowerCase())) {
+                return b;
+            }
+        }
+        return null;
+    }
+
+    public Book searchAuthor(String keyword, ArrayList<Book> books) {
+        for (Book b : books) {
+            if (b.getAuthor().contains(keyword.toLowerCase())) {
                 return b;
             }
         }
@@ -56,4 +65,5 @@ public class Patron extends User {
         return false;
     }
 }
+
 
