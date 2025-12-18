@@ -14,7 +14,7 @@ public class WelcomePatron extends JFrame {
     private JButton contactBtn;
     private JButton LogOut;
 
-    public WelcomePatron(User patron) {
+    public WelcomePatron(User patron, LibrarySystem ls) {
         this.patron = patron;
 
         setTitle("Welcome Patron");
@@ -69,7 +69,7 @@ public class WelcomePatron extends JFrame {
         LogOut = new JButton("LogOut");
         LogOut.setFont(btnFont);
         LogOut.setPreferredSize(btnSize);
-        LogOut.addActionListener(e -> {this.dispose(); (new screens.LoginScreen()).show();});
+        LogOut.addActionListener(e -> {this.dispose(); (new screens.LoginScreen(ls)).show();});
         gbc.gridy = 4;
         mainPanel.add(LogOut, gbc);
         add(mainPanel, BorderLayout.CENTER);

@@ -2,9 +2,10 @@ package screens.admin;
 
 import javax.swing.*;
 import java.awt.*;
+import models.LibrarySystem;
 
 public class AdminDashboard extends JFrame {
-    public AdminDashboard() {
+    public AdminDashboard(LibrarySystem ls) {
         setTitle("Admin Dashboard");
         setSize(1920, 1750);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -36,7 +37,7 @@ public class AdminDashboard extends JFrame {
         usersBtn.addActionListener(e -> new ManageUsersFrame());
         booksBtn.addActionListener(e -> new ManageBooksFrame());
         profileBtn.addActionListener(e -> new EditProfileFrame());
-        LogOutBtn.addActionListener(e -> {this.dispose(); (new screens.LoginScreen()).show();});
+        LogOutBtn.addActionListener(e -> {this.dispose(); (new screens.LoginScreen(ls)).show();});
 
         add(panel);
         setVisible(true);

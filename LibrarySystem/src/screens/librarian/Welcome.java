@@ -16,7 +16,7 @@ public class Welcome extends JFrame {
     private JButton jButton4;
     private JButton jButton5;
 
-    public Welcome(User librarian) {
+    public Welcome(User librarian, LibrarySystem ls) {
         this.librarian = librarian;
         jPanel1 = new JPanel();
         jLabel1 = new JLabel();
@@ -94,7 +94,7 @@ public class Welcome extends JFrame {
         jButton5.setText("LogOut");
         jButton5.setFont(btnFont);
         jButton5.setPreferredSize(btnSize);
-        jButton5.addActionListener(e -> {this.dispose(); (new screens.LoginScreen()).show();});
+        jButton5.addActionListener(e -> {this.dispose(); (new screens.LoginScreen(ls)).show();});
 
         gbc.gridy = 5;
         jPanel1.add(jButton5, gbc);

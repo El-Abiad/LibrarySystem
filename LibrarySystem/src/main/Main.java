@@ -19,7 +19,7 @@ public class Main {
 
         ls.getTransactions().addAll(FileManager.ReadTransactions());
         
-        LoginScreen Launch = new LoginScreen();
+        LoginScreen Launch = new LoginScreen(ls);
         Launch.show();
     }
 }

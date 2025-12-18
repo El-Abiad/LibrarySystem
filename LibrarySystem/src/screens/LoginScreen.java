@@ -6,7 +6,7 @@ import models.*;
 
 public class LoginScreen {
     private JFrame frame;
-    public LoginScreen() {
+    public LoginScreen(LibrarySystem ls) {
 
         frame = new JFrame("Login Screen");
         frame.setSize(1920, 1750);
@@ -62,7 +62,7 @@ public class LoginScreen {
 
             long userId = Long.parseLong(id);
 
-            User u = LibrarySystem.findUserById(userId);
+            User u = ls.getUserById(userId);
             
             if (u == null || !u.getPassword().equals(password)) {
                 JOptionPane.showMessageDialog(frame,
@@ -74,13 +74,13 @@ public class LoginScreen {
 
             String role = u.getRole();
             if (role.equalsIgnoreCase("Admin")) {
-                new screens.admin.AdminDashboard().setVisible(true);
+                new screens.admin.AdminDashboard(ls).setVisible(true);
             }
             else if (role.equalsIgnoreCase("Patron")) {
-                new screens.patron.WelcomePatron(u).setVisible(true);
+                new screens.patron.WelcomePatron(u, ls).setVisible(true);
             }
             else if (role.equalsIgnoreCase("Librarian")) {
-                new screens.librarian.Welcome(u).setVisible(true);
+                new screens.librarian.Welcome(u, ls).setVisible(true);
             }
 
             frame.dispose();

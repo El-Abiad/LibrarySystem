@@ -1,7 +1,7 @@
 package models;
 
 import java.util.ArrayList;
-import LibrarySystem;
+import utils.IDGenerator;
 
 public class Patron extends User {
     private ArrayList<Transaction> history;

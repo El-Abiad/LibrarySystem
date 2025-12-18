@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/El-Abiad/OneDrive%20-%20Faculty%20of%20Computers%20and%20Information/Desktop/LibrarySystem/LibrarySystem/src/screens/LoginScreen.java</file>
-            <file>file:/C:/Users/El-Abiad/OneDrive%20-%20Faculty%20of%20Computers%20and%20Information/Desktop/LibrarySystem/LibrarySystem/src/main/Main.java</file>
+            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/models/Patron.java</file>
+            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/main/Main.java</file>
+            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/LoginScreen.java</file>
+            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/models/LibrarySystem.java</file>
+            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/admin/AdminDashboard.java</file>
+            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/librarian/Welcome.java</file>
+            <file>file:/D:/PL_project/LibrarySystem/LibrarySystem/src/screens/patron/WelcomePatron.java</file>
         </group>
     </open-files>
 </project-private>
