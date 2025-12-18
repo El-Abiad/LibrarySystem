@@ -1,7 +1,7 @@
 package models;
 
 import java.util.ArrayList;
-import java.util.HashMap;
+import LibrarySystem;
 
 public class Patron extends User {
     private ArrayList<Transaction> history;
@@ -10,10 +10,10 @@ public class Patron extends User {
         super(id, username, password, phone, email, "Patron");
         this.history = new ArrayList<>();
     }
-
-    public Book searchBook(String keyword, HashMap<Long, Book> bookMap) {
-        for (Book b : bookMap.values()) {
-            if (b.getTitle().contains(keyword) || b.getAuthor().contains(keyword)) {
+    
+    public Book searchBook(String keyword, ArrayList<Book> books) {
+        for (Book b : books) {
+            if (b.getTitle().contains(keyword.toLowerCase()) || b.getAuthor().contains(keyword.toLowerCase())) {
                 return b;
             }
         }
@@ -28,8 +28,8 @@ public class Patron extends User {
         return true;
     }
 
-    public Transaction reserveBook(Long bookId) {
-        return new Transaction(System.currentTimeMillis(), this.getId(), null, bookId, "Reservation");
+    public Transaction reserveBook(Long bookId, Long librarianId) {
+        return new Transaction(IDGenerator.GenerateTransactionId(), this.getId(), librarianId, bookId, "Reservation");
     }
 
     public Boolean updateOwnUsername(Long userId, String newName) {
@@ -56,3 +56,4 @@ public class Patron extends User {
         return false;
     }
 }
+
